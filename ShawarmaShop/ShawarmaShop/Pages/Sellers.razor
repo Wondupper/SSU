@@ -1,0 +1,57 @@
+﻿@page "/sellers"
+@using ShawarmaShop.Models
+@using ShawarmaShop.ViewModels
+@inject SellerViewModel SellerVM
+
+<h3>Управление продавцами</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <EditForm Model="@newSeller" OnValidSubmit="@AddSeller">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label>Имя</label>
+                <InputText @bind-Value="newSeller.Name" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить продавца</button>
+        </EditForm>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var seller in SellerVM.Sellers)
+                {
+                    <tr>
+                        <td>@seller.Name</td>
+                        <td>
+                            <button @onclick="() => DeleteSeller(seller.Id)" class="btn btn-danger btn-sm">Удалить</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private Seller newSeller = new Seller();
+
+    private void AddSeller()
+    {
+        SellerVM.AddSeller(newSeller);
+        newSeller = new Seller();
+    }
+
+    private void DeleteSeller(Guid sellerId)
+    {
+        SellerVM.DeleteSeller(sellerId);
+    }
+}

@@ -1,0 +1,57 @@
+﻿@page "/customers"
+@using ShawarmaShop.Models
+@using ShawarmaShop.ViewModels
+@inject CustomerViewModel CustomerVM
+
+<h3>Управление покупателями</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <EditForm Model="@newCustomer" OnValidSubmit="@AddCustomer">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label>Имя</label>
+                <InputText @bind-Value="newCustomer.Name" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить покупателя</button>
+        </EditForm>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Имя</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in CustomerVM.Customers)
+                {
+                    <tr>
+                        <td>@customer.Name</td>
+                        <td>
+                            <button @onclick="() => DeleteCustomer(customer.Id)" class="btn btn-danger btn-sm">Удалить</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private Customer newCustomer = new Customer();
+
+    private void AddCustomer()
+    {
+        CustomerVM.AddCustomer(newCustomer);
+        newCustomer = new Customer();
+    }
+
+    private void DeleteCustomer(Guid customerId)
+    {
+        CustomerVM.DeleteCustomer(customerId);
+    }
+}

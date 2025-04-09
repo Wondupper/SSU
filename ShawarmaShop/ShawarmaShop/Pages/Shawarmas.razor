@@ -1,0 +1,57 @@
+﻿@page "/shawarmas"
+@using ShawarmaShop.Models
+@using ShawarmaShop.ViewModels
+@inject ShawarmaViewModel ShawarmaVM
+
+<h3>Управление шаурмой</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <EditForm Model="@newShawarma" OnValidSubmit="@AddShawarma">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="form-group">
+                <label>Название</label>
+                <InputText @bind-Value="newShawarma.Name" class="form-control" />
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить шаурму</button>
+        </EditForm>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var shawarma in ShawarmaVM.Shawarmas)
+                {
+                    <tr>
+                        <td>@shawarma.Name</td>
+                        <td>
+                            <button @onclick="() => DeleteShawarma(shawarma.Id)" class="btn btn-danger btn-sm">Удалить</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    private Shawarma newShawarma = new Shawarma();
+
+    private void AddShawarma()
+    {
+        ShawarmaVM.AddShawarma(newShawarma);
+        newShawarma = new Shawarma();
+    }
+
+    private void DeleteShawarma(Guid shawarmaId)
+    {
+        ShawarmaVM.DeleteShawarma(shawarmaId);
+    }
+}

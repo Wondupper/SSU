@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option java_package = "com.example.grpcjokeserver.grpc";
+option java_outer_classname = "JokeServiceProto";
+
+service JokeService {
+  rpc GetRandomJoke (Empty) returns (JokeResponse);
+  rpc GetJokeByGenre (GenreRequest) returns (JokeResponse);
+  rpc GetJokeByAge (AgeRequest) returns (JokeResponse);
+}
+
+message Empty {}
+
+message GenreRequest {
+  string genre = 1;
+}
+
+message AgeRequest {
+  int32 age = 1;
+}
+
+message JokeResponse {
+  string joke = 1;
+  bool error = 2;
+  string errorMessage = 3;
+}
