@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>MyRadiostation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+        <span class="fs-4">MyRadiostation</span>
+    </a>
+
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Главная</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/albums-find/">Поиск альбомов</a>
+        <a sec:authorize="hasRole('ADMIN')" class="me-3 py-2 link-body-emphasis text-decoration-none" href="/albums/create">Добавить альбом</a>
+    </nav>
+</div>
+<div class="container mt-5">
+    <div th:each="el : ${albums}" class="alert alert-info mt-2">
+        <h3 sec:authorize="hasRole('ADMIN')" th:text="'Id альбома = '+${el.id}"/>
+        <h3 th:text="'Название альбома: '+${el.aname}"/>
+        <p th:text="'Дата создания: '+${#temporals.format(el.datecreate, 'yyyy-MM-dd')}"/>
+        <div th:each="el2: ${el.tracks}" class="container mt-5 nb-5">
+            <h3 sec:authorize="hasRole('ADMIN')" th:text="'Id трека = '+${el2.id}"/>
+            <h3 th:text="'Название трека: '+${el2.tname}"/>
+            <p th:text="'Дата создания: '+${#temporals.format(el2.datecreate, 'yyyy-MM-dd')}"/>
+            <a th:href = "'/tracks/'+ ${el2.id}">Подробнее про трек</a>
+        </div>
+        <a sec:authorize="hasRole('ADMIN')" class="btn btn-warning" th:href="'/albums/'+ ${el.id} + '/edit'">Изменить</a>
+        <form sec:authorize="hasRole('ADMIN')" th:action="'/albums/'+ ${el.id} + '/delete'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

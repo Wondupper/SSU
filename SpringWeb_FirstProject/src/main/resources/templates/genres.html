@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>MyRadiostation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+        <span class="fs-4">MyRadiostation</span>
+    </a>
+
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Главная</a>
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/genres-find/">Поиск жанров</a>
+        <a sec:authorize="hasRole('ADMIN')" class="me-3 py-2 link-body-emphasis text-decoration-none" href="/genres/create">Добавить жанр</a>
+    </nav>
+</div>
+<div class="container mt-5">
+    <div th:each="el : ${genres}" class="alert alert-info mt-2">
+        <h3 sec:authorize="hasRole('ADMIN')" th:text="'Id жанра = '+${el.id}"/>
+        <h3 th:text="'Название: '+${el.gname}"/>
+        <div th:each="el2 : ${el.artists}" class="container mt-5 nb-5">
+            <h3 sec:authorize="hasRole('ADMIN')" th:text="'Id исполнителя = '+${el2.id}"/>
+            <h3 th:text="'Имя: '+${el2.aname}"/>
+            <h3 th:text="'Фамилия: '+${el2.surname}"/>
+            <a th:href = "'/artists/'+ ${el2.id}">Подробнее про артиста</a>
+        </div>
+        <a sec:authorize="hasRole('ADMIN')" class="btn btn-warning" th:href="'/genres/'+ ${el.id} + '/edit'">Изменить</a>
+        <form sec:authorize="hasRole('ADMIN')" th:action="'/genres/'+ ${el.id} + '/delete'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

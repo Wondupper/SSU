@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>MyRadiostation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+        <span class="fs-4">MyRadiostation</span>
+    </a>
+
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <a class="me-3 py-2 link-body-emphasis text-decoration-none" href="/">Главная</a>
+        <a sec:authorize="hasRole('ADMIN')" class="me-3 py-2 link-body-emphasis text-decoration-none" href="/speakersinschedule/create">Добавить ведущего с программой</a>
+    </nav>
+</div>
+<form sec:authorize="hasRole('ADMIN')" action="/speakersinschedule-find/" method="get">
+    Поиск по id ведущего: <input type="number" name="idspeaker"><br>
+    <input type="submit" value="Поиск"/>
+</form>
+<form sec:authorize="hasRole('ADMIN')" action="/speakersinschedule-find/" method="get">
+    Поиск по фамилии ведущего: <input type="text" name="surname"><br>
+    <input type="submit" value="Поиск"/>
+</form>
+<form sec:authorize="hasRole('ADMIN')" action="/speakersinschedule-find/" method="get">
+    Поиск по id программы: <input type="number" name="idprogram"><br>
+    <input type="submit" value="Поиск"/>
+</form>
+<form sec:authorize="hasRole('ADMIN')" action="/speakersinschedule-find/" method="get">
+    Поиск по названию программы: <input type="text" name="pname"><br>
+    <input type="submit" value="Поиск"/>
+</form>
+<div class="container mt-5">
+    <div th:each="el : ${speakersinschedule}" class="alert alert-info mt-2">
+        <h3 th:text="'Id = '+ ${el.id}"/>
+        <h3 th:text="'Id ведущего = ' +${el.speaker.id}"/>
+        <h3 th:text="'Id программы = '+${el.program.id}"/>
+        <a sec:authorize="hasRole('ADMIN')" class="btn btn-warning" th:href="'/speakersinschedule/'+ ${el.id} + '/edit'">Изменить</a>
+        <form sec:authorize="hasRole('ADMIN')" th:action="'/speakersinschedule/'+ ${el.id} + '/delete'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
