@@ -1,0 +1,4 @@
+if a < b then a=a+1;
+elseif a > b then b=b+2;
+else b=b+4;
+end
