@@ -1,0 +1,232 @@
+
+camera 10 5 5 10 5 0 0 1 0
+screen 90 2 0.3 200
+
+model 0.5 0.433 0.4082 1 0.866 0.8165
+
+ambient 0.24725 0.1995 0.0745
+diffuse 0.75164 0.60648 0.22648
+specular 0.628281 0.555802 0.366065
+shininess 51.2
+color 95 28 28
+mesh 3 1
+0.0 0.0 0.0 	0 0 -1 
+1.0 0.0 0.0		0 0 -1 
+0.5 0.866 0.0	0 0 -1 
+0 1 2
+color 95 28 28
+mesh 3 1
+0.0 0.0 0.0		0 -0.942801 0.333358 
+0.5 0.2887 0.8165 0 -0.942801 0.333358 
+1.0 0.0 0.0		0 -0.942801 0.333358 
+0 1 2
+color 95 28 28
+mesh 3 1
+0.0 0.0 0.0		-0.942833 0.544361 0.384886 # -0.707089 0.40825 0.28865
+0.5 0.2887 0.8165 -0.942833 0.544361 0.384886 # -0.707089 0.40825 0.28865
+0.5 0.866 0.0 	-0.942833 0.544361 0.384886 # -0.707089 0.40825 0.28865
+0 1 2
+color 95 28 28
+mesh 3 1
+0.5 0.2887 0.8165	0.942833 0.544361 0.384886 # 0.707089 0.40825 0.28865
+1.0 0.0 0.0		0.942833 0.544361 0.384886 # 0.707089 0.40825 0.28865
+0.5 0.866 0.0	0.942833 0.544361 0.384886 # 0.707089 0.40825 0.28865
+0 1 2
+
+pushTransform # сохранить отправную точку
+scale 0.7
+pushTransform
+#Первый зеленый средний(от левой стороный)
+scale 1.5
+rotate 180 0 0 1
+translate -6 0 0
+translate 10 1.5 0
+figure
+popTransform
+
+#Второй зеленый средний(от левой стороный)
+pushTransform
+scale 1.5
+rotate 90 0 0 1
+translate 0 6 0
+translate 10 1.5 0
+figure
+popTransform
+
+#Третий зеленый средний(от левой стороный)
+pushTransform
+scale 1.5
+rotate 210 0 0 1
+translate 6 0 0
+translate 10 1.5 0
+figure
+popTransform
+
+#Большой зеленый
+pushTransform
+scale 3
+rotate -90 0 0 1
+translate -9 0 0
+rotate 220 0 0 1
+translate 10 1.5 0
+figure
+popTransform
+
+#Третий зеленый малый
+pushTransform
+rotate -30 0 0 1
+rotate -90 0 0 1
+translate 0 4 0
+translate 10 1.5 0
+figure
+popTransform
+
+#Второй зеленый малый
+pushTransform
+rotate 30 0 0 1
+translate -4 0 0
+rotate -30 0 0 1
+translate 10 1.5 0
+figure
+popTransform
+
+#Первый зеленый малый
+pushTransform
+rotate 60 0 0 1
+rotate 180 0 0 1
+translate 4 0 0
+rotate 30 0 0 1
+translate 10 1.5 0
+figure
+popTransform
+popTransform
+
+
+
+
+model 0 0 0 2 2 2
+ambient 0.1745 0.01175 0.01175
+diffuse 0.61424 0.04136 0.04136
+specular 0.727811 0.626959 0.626959
+shininess 76.8
+color 95 28 28
+mesh 4 2
+-0.5 -0.5 -0.5 0.0 -1.0 0.0 
+-0.5 -0.5 0.5 0.0 -1.0 0.0
+0.5 -0.5 0.5 0.0 -1.0 0.0
+0.5 -0.5 -0.5 0.0 -1.0 0.0
+0 1 2 
+0 2 3 
+color 95 28 28
+mesh 4 2
+-0.5 0.5 -0.5 0.0 1.0 0.0 
+-0.5 0.5 0.5 0.0 1.0 0.0
+0.5 0.5 0.5 0.0 1.0 0.0
+0.5 0.5 -0.5 0.0 1.0 0.0
+0 1 3 
+1 2 3 
+color 95 28 28
+mesh 4 2
+-0.5 -0.5 -0.5 -1.0 0.0 0.0 
+-0.5 -0.5 0.5 -1.0 0.0 0.0
+-0.5 0.5 -0.5 -1.0 0.0 0.0
+-0.5 0.5 0.5 -1.0 0.0 0.0
+0 1 2 
+1 2 3 
+color 95 28 28
+mesh 4 2
+0.5 -0.5 0.5 1.0 0.0 0.0 
+0.5 -0.5 -0.5 1.0 0.0 0.0
+0.5 0.5 0.5 1.0 0.0 0.0
+0.5 0.5 -0.5 1.0 0.0 0.0
+2 0 1 
+2 1 3 
+color 95 28 28
+mesh 4 2
+-0.5 -0.5 0.5 0.0 0.0 1.0 
+0.5 -0.5 0.5 0.0 0.0 1.0
+-0.5 0.5 0.5 0.0 0.0 1.0
+0.5 0.5 0.5 0.0 0.0 1.0
+0 2 3 
+0 3 1 
+color 95 28 28
+mesh 4 2
+-0.5 -0.5 -0.5 0.0 0.0 -1.0 
+0.5 -0.5 -0.5 0.0 0.0 -1.0
+-0.5 0.5 -0.5 0.0 0.0 -1.0
+0.5 0.5 -0.5 0.0 0.0 -1.0
+1 3 2 
+1 2 0 
+pushTransform
+scale 0.5
+pushTransform
+#Большой синий
+scale 3
+rotate 60 0 0 1
+rotate -90 0 0 1
+translate -9 0 0
+rotate -40 0 0 1
+translate 10 1.5 0
+figure
+popTransform
+
+#Первый средний
+pushTransform
+scale 1.5
+rotate 120 0 0 1
+rotate -270 0 0 1
+translate -6 0 0
+rotate -45 0 0 1
+translate 10 1.5 0
+figure
+popTransform
+
+#Второй средний
+pushTransform
+scale 1.5
+rotate 180 0 0 1
+rotate -90 0 0 1
+translate 6 0 0
+rotate 45 0 0 1
+translate 10 1.5 0
+figure
+popTransform
+
+#Первый малый
+pushTransform
+rotate -90 0 0 1
+translate -4 0 0
+translate 10 1.5 0
+figure
+popTransform
+
+#Четвертый малый
+pushTransform
+rotate 240 0 0 1
+rotate -90 0 0 1
+translate -4 0 0
+rotate -60 0 0 1
+translate 10 1.5 0
+figure
+popTransform
+
+#Второй малый
+pushTransform
+rotate 300 0 0 1
+rotate -90 0 0 1
+translate -4 0 0
+rotate -120 0 0 1
+translate 10 1.5 0
+figure
+popTransform
+
+#Третий малый
+pushTransform
+rotate 360 0 0 1
+rotate -90 0 0 1
+translate -4 0 0
+rotate -180 0 0 1
+translate 10 1.5 0
+figure
+popTransform
+popTransform

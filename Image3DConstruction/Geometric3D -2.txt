@@ -1,0 +1,188 @@
+
+camera 10 5 5 10 5 0 0 1 0
+screen 90 2 5 20
+#первый рисунок
+color 0 0 0
+thickness 2
+model 0.5 0.433 0.4082 1 0.866 0.8165
+path 5
+0 0 0
+0.5 0.2887 0.8165
+1 0 0
+0.5 0.866 0
+0.5 0.2887 0.8165
+path 3
+0.5 0.866 0
+0 0 0
+1 0 0
+#Преобразование и размещение по описанию
+pushTransform # сохранить отправную точку
+scale 0.5
+pushTransform
+#Первый зеленый средний(от левой стороный)
+scale 1.5
+rotate 180 1 1 0
+rotate 180 0 0 1
+translate -6 0 30
+translate 10 1.5 0
+figure
+popTransform
+
+#Второй зеленый средний(от левой стороный)
+pushTransform
+scale 1.5
+rotate 90 1 1 0
+rotate 90 0 0 1
+translate 0 6 29
+translate 10 1.5 0
+figure
+popTransform
+
+#Третий зеленый средний(от левой стороный)
+pushTransform
+scale 1.5
+rotate 210 1 1 0
+translate 6 0 28
+translate 10 1.5 0
+figure
+popTransform
+
+#Большой зеленый
+pushTransform
+scale 3
+rotate 220 1 1 0
+translate -9 0 0
+rotate 220 0 0 1
+translate 10 1.5 27
+figure
+popTransform
+
+#Третий зеленый малый
+pushTransform
+rotate -90 1 1 0
+rotate -90 0 0 1
+translate 0 4 0
+translate 10 1.5 26
+figure
+popTransform
+
+#Второй зеленый малый
+pushTransform
+#rotate 30 1 1 0
+#rotate 30 0 0 1
+rotate -30 1 1 0
+translate -4 0 0
+rotate -30 0 0 1
+translate 10 1.5 25
+figure
+popTransform
+
+#Первый зеленый малый
+pushTransform
+rotate 180 1 1 0
+rotate 180 0 0 1
+translate 4 0 0
+rotate 30 0 0 1
+translate 10 1.5 24
+figure
+popTransform
+popTransform
+
+color 0 0 0
+thickness 2
+model 0.5 0.5 0.5 1 1 1 
+path 10
+0 1 0
+1 1 0
+1 1 1
+0 1 1
+0 1 0
+0 0 0
+1 0 0
+1 0 1
+0 0 1
+0 1 1
+path 2
+0 0 0
+0 0 1
+path 2
+1 1 0
+1 0 0
+path 2
+1 1 1
+1 0 1
+# Преобразования над изображением 
+pushTransform
+scale 0.5
+pushTransform
+#Большой синий
+scale 3
+rotate -90 1 1 0 
+rotate -90 0 0 1
+translate -9 0 0
+rotate -40 0 0 1
+translate 10 1.5 23
+figure
+popTransform
+
+#Первый средний
+pushTransform
+scale 1.5
+rotate -270 1 1 0
+rotate -270 0 0 1
+translate -6 0 0
+rotate -45 0 0 1
+translate 10 1.5 22
+figure
+popTransform
+
+#Второй средний
+pushTransform
+scale 1.5
+rotare -90 1 1 0
+rotate -90 0 0 1
+translate 6 0 0
+rotate 45 0 0 1
+translate 10 1.5 21
+figure
+popTransform
+
+#Первый малый
+pushTransform
+rotate -90 1 1 0
+rotate -90 0 0 1
+translate -4 0 0
+translate 10 1.5 20
+figure
+popTransform
+
+#Четвертый малый
+pushTransform
+rotate -90 1 1 0
+rotate -90 0 0 1
+translate -4 0 0
+rotate -60 0 0 1
+translate 10 1.5 19
+figure
+popTransform
+
+#Второй малый
+pushTransform
+rotate -90 1 1 0
+rotate -90 0 0 1
+translate -4 0 0
+rotate -120 0 0 1
+translate 10 1.5 18
+figure
+popTransform
+
+#Третий малый
+pushTransform
+rotate -90 1 1 0
+rotate -90 0 0 1
+translate -4 0 0
+rotate -180 0 0 1
+translate 10 1.5 17
+figure
+popTransform
+popTransform
