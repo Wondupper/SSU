@@ -1,6 +1,4 @@
 Работы бакалавриата "Математическое обеспечение и администрирование информационных систем" Саратовского Государтсвенного Университета
-- [Алгоритмы и стуктуры данных на C#](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_C%23)
-- [Программирование на C++](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_C%2B%2B)
 - [Методы вычислений на C#](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_CalculationMethods)
 - [Компьютерная графика на C++](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_ComputerGraphic)
 - [Базы данных](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_DB)
@@ -10,3 +8,5 @@
 - [Теория формальных языков и трансляций](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_TFAT)
 - [WEB разработка](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_WEB)
 - [Курсовая работа 3 курса(голосовой помощник)](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_CourseWorks)
+- [Алгоритмы и стуктуры данных на C#](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_C%23)
+- [Программирование на C++](https://github.com/Wondupper/SSU/tree/SSU_Baccalaureate_C%2B%2B)
